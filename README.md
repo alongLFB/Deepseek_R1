@@ -42,7 +42,7 @@ This project provides a simple Gradio interface for interacting with the DeepSee
     ```bash
     python openrouter_gradio.py
     ```
-2.  Open the Gradio interface in your web browser. The URL will be displayed in the terminal (usually something like `http://127.0.0.1:7860`).
+2.  Open the Gradio interface in your web browser. The URL will be displayed in the terminal (usually something like `http://127.0.0.1:7862`).
 
 ##### Features
 

@@ -114,4 +114,4 @@ with gr.Blocks() as demo:
                         concurrency_limit=40)
 
 demo.queue(api_open=False)
-demo.launch(max_threads=40)
+demo.launch(server_port=7862,max_threads=40)
