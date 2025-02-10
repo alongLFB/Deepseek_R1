@@ -1,0 +1,64 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# C extensions
+*.so
+
+# Distribution / packaging
+.Python
+env/
+venv/
+ENV/
+*.egg
+*.egg-info
+dist/
+build/
+eggs/
+parts/
+lib/
+lib64/
+sdist/
+wheels/
+*.whl
+*.tar.gz
+*.zip
+*.zip.part
+MANIFEST
+
+# PyInstaller
+#  Usually these files are written into a dist/ folder, but PyInstaller
+#  can also be told to write into the source tree.
+/__pycache__
+/dist
+
+# Spyder project settings
+.spyderproject
+.spyproject
+
+# Rope project settings
+.ropeproject
+
+# mkdocs
+/site
+
+# mypy
+.mypy_cache/
+.dmypy.json
+dmypy.json
+
+# Environments
+.env
+.venv
+env/
+venv/
+ENV/
+
+# Jupyter Notebook
+.ipynb_checkpoints
+
+# OS generated files #
+######################
+.DS_Store
+Thumbs.db
