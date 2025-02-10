@@ -2,8 +2,11 @@ import gradio as gr
 from typing import List, Optional, Tuple, Dict
 from openai import OpenAI
 import os
+from dotenv import load_dotenv
 
 default_system = 'You are a helpful assistant.'
+
+load_dotenv()
 
 openrouter_api_key = os.getenv('openrouter_api_key')
 openrouter_base_url = os.getenv('openrouter_base_url')
