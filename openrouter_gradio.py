@@ -1,6 +1,7 @@
 import gradio as gr
 from typing import List, Optional, Tuple, Dict
 from openai import OpenAI
+from http import HTTPStatus
 import os
 from dotenv import load_dotenv
 
@@ -71,11 +72,17 @@ def model_chat(query: Optional[str], history: Optional[History], system: str
     )
 
     full_response = ""
-    for chunk in response:
-        if chunk.choices and chunk.choices[0].delta and chunk.choices[0].delta.content:
-            full_response += chunk.choices[0].delta.content
-            # Yield partial response
-            yield '', history + [[query, full_response]], system
+    if response.response.status_code == HTTPStatus.OK:
+        for chunk in response:
+            if chunk.choices and chunk.choices[0].delta and chunk.choices[0].delta.content:
+                full_response += chunk.choices[0].delta.content
+                # Yield partial response
+                yield '', history + [[query, full_response]], system
+    else:
+        raise ValueError('Request id: %s, Status code: %s, error code: %s, error message: %s' % (
+            response.request_id, response.status_code,
+            response.code, response.message
+        ))
 
     return '', history + [[query, full_response]], system
 
@@ -117,4 +124,4 @@ with gr.Blocks() as demo:
                         concurrency_limit=40)
 
 demo.queue(api_open=False)
-demo.launch(server_port=7862,max_threads=40)
+demo.launch(server_port=7864, max_threads=40)
